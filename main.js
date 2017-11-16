@@ -111,3 +111,19 @@ function recursiveBinarySearch( array, value, leftPosition, rightPosition ){
 }
 
 console.log(recursiveBinarySearch( sortedForBinary, 5, 0, 6 ))
+
+// Event Bubbling
+
+const parent = document.querySelector(".parent");
+const child = document.querySelector(".child");
+
+parent.addEventListener('click', function(e){
+    console.log("PARENT CLICK")
+})
+
+child.addEventListener('click', function(e){
+    e.stopPropagation();
+    console.log("CHILD CLICK")
+})
+
+
