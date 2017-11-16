@@ -23,3 +23,24 @@ function computeProduct( unsorted ){
 }
 
 console.log(computeProduct(unsortedArray));
+
+
+//Being told that an unsorted array contains (n - 1) of n consecutive numbers
+//(where the bounds are defined), find the missing number in O(n) time.
+
+let arrayOfIntegers = [2, 5, 4, 8, 9, 6, 3, 7];
+let upperBound = 9;
+let lowerBound = 1;
+
+function findMissingNumber( arrayOfIntegers, upperBound, LowerBound ) {
+    let sumOfInts = 0;
+    for(i=0; i<arrayOfIntegers.length; i++){
+        sumOfInts += arrayOfIntegers[i];
+    }
+    upperLimitSum = (upperBound * (upperBound + 1) / 2)
+    lowerLimitSum = (lowerBound * (lowerBound - 1) / 2)
+    theoreticalSum = upperLimitSum - lowerLimitSum
+    return theoreticalSum - sumOfInts
+}
+
+console.log(findMissingNumber(arrayOfIntegers, 9, 1));
