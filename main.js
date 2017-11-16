@@ -44,3 +44,34 @@ function findMissingNumber( arrayOfIntegers, upperBound, LowerBound ) {
 }
 
 console.log(findMissingNumber(arrayOfIntegers, 9, 1));
+
+
+// Removing duplicates of an array and returning an array of only unique elements
+
+let dupedArr = [1, 2, 3, 5, 1, 5, 9, 1, 2, 8];
+
+function uniqueArray( array ){
+    let hashmap = {};
+    let unique = [];
+    array.forEach( (item, ind) => {
+        if(!hashmap[item]){
+            hashmap[item] = 1;
+            unique.push(item);
+        }
+    })
+    return unique
+}
+
+console.log(uniqueArray( dupedArr ));
+
+//Given an array of integers, find the largest difference between two elements
+//such that the element of lesser value must come before the greater element
+
+let diffArr = [7, 8, 4, 9, 9, 15, 3, 1, 10];
+
+function findLargestDifference( array ){
+    if (array.length <= 1) return -1;
+
+    let currentMin = array[0];
+    let currentMaxDifference = 0;
+}
