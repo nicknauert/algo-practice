@@ -89,3 +89,25 @@ function findLargestDifference( array ){
 }
 
 console.log(findLargestDifference( diffArr ));
+
+// Write a recursive function that performs a binary search
+
+const unsortedBinArray = [-10, 7, 29, 30, 5, -10, -70];
+
+let sortedForBinary = unsortedBinArray.sort( sortIntegers );
+
+
+function recursiveBinarySearch( array, value, leftPosition, rightPosition ){
+    if (leftPosition > rightPosition) return -1;
+
+    let middlePivot = Math.floor((leftPosition + rightPosition) / 2);
+    if ( array[middlePivot] === value ) {
+        return middlePivot;
+    } else if ( array[middlePivot] > value ){
+        return recursiveBinarySearch( array, value, leftPosition, middlePivot - 1 )
+    } else if ( array[middlePivot] < value ){
+        return recursiveBinarySearch( array, value, middlePivot + 1, rightPosition )
+    }
+}
+
+console.log(recursiveBinarySearch( sortedForBinary, 5, 0, 6 ))
