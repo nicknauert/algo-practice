@@ -67,11 +67,25 @@ console.log(uniqueArray( dupedArr ));
 //Given an array of integers, find the largest difference between two elements
 //such that the element of lesser value must come before the greater element
 
-let diffArr = [7, 8, 4, 9, 9, 15, 3, 1, 10];
+let diffArr = [7, 10, 4, 9, 9, 15, 3, 1, 10];
 
 function findLargestDifference( array ){
     if (array.length <= 1) return -1;
 
     let currentMin = array[0];
     let currentMaxDifference = 0;
+
+    for(let i = 1; i<array.length; i++ ){
+        if ( array[i] > currentMin && (array[i] - currentMin > currentMaxDifference)){
+            currentMaxDifference = array[i] - currentMin;
+        } else if ( array[i] <= currentMin ){
+            currentMin = array[i];
+        }
+    }
+
+    if (currentMaxDifference <= 0 ) return -1;
+
+    return currentMaxDifference;
 }
+
+console.log(findLargestDifference( diffArr ));
