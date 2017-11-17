@@ -127,6 +127,8 @@ child.addEventListener('click', function(e){
 })
 
 
+// Converting Decimal to Binary
+
 function decimalToBinary( digit ){
     if( digit >= 1){
         if(digit % 2){
@@ -140,5 +142,43 @@ function decimalToBinary( digit ){
 }
 
 console.log(decimalToBinary(11), decimalToBinary(250), decimalToBinary(7));
+
+
+// Checking for balanced parentheses
+
+let expression = "{{}}{}{}"
+let expressionFalse = "{}{{}"
+
+function isBalanced( expression ){
+    let checkString = expression;
+    let stack = [];
+
+    if (checkString.length <= 0) return true;
+
+
+    for( i=0; i < checkString.length; i++ ){
+        if( checkString[i] === '{' ){
+            stack.push(checkString[i])
+        } else if ( checkString[i] === '}' ){
+            if( stack.length > 0 ){
+                stack.pop()
+            } else {
+                return false;
+            }
+        }
+    }
+    if ( stack.pop() ) return false;
+    return true;
+}
+
+console.log(isBalanced(expression), isBalanced(expressionFalse))
+
+
+
+
+
+
+
+
 
 
