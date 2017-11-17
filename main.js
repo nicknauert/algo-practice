@@ -13,7 +13,7 @@ function computeProduct( unsorted ){
         array_n_element = sortedArray.length - 1;
     
     for(let x = array_n_element; x > array_n_element - 3; x--){
-        product1 = product1 * sortedArray[x];
+        product1 *= sortedArray[x];
     }
 
     product2 = sortedArray[0] * sortedArray[1] * sortedArray[array_n_element]
@@ -125,5 +125,20 @@ child.addEventListener('click', function(e){
     e.stopPropagation();
     console.log("CHILD CLICK")
 })
+
+
+function decimalToBinary( digit ){
+    if( digit >= 1){
+        if(digit % 2){
+            return decimalToBinary((digit - 1) / 2) + 1;
+        } else {
+            return decimalToBinary(digit / 2) + 0;
+        }
+    } else {
+        return '';
+    }
+}
+
+console.log(decimalToBinary(11), decimalToBinary(250), decimalToBinary(7));
 
 
